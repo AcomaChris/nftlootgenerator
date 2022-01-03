@@ -8,8 +8,6 @@ import json
 import math
 import sys
 
-# Testing something.
-
 # Import to allow image manipulation.
 from PIL import Image, ImageFont, ImageDraw
 
@@ -22,10 +20,10 @@ print('Local filepath is: ' + filepath)
 CollectionName = "BoredApeYachtClub".lower()
 
 # Declaring the font we use for the title.
-card_font = ImageFont.truetype(f'{filepath}\cardgeneration\PoetsenOne-Regular.ttf', 64)
+card_font = ImageFont.truetype(f'{filepath}\cardgeneration\PoetsenOne-Regular.ttf', 40)
 
-# Image manipulation functions.
-def CreateImageCard(CollectionName, formatted_number, cardName):
+# Generate a card from the downloaded images.
+def CreateImageCard(CollectionName, formatted_number, card_name):
     
     # Create variables for holding the images we want to merge.
     nft_image = Image.open(f"{filepath}\collections\{CollectionName}\{formatted_number}.png")
@@ -47,7 +45,7 @@ def CreateImageCard(CollectionName, formatted_number, cardName):
     final_image.paste(trim_image,(0,0),trim_image)
 
     # Add the text title to the card.
-    title_text = "Bored Ape #0"
+    title_text = card_name
     final_image_editable = ImageDraw.Draw(final_image)
     final_image_editable.text((60,40) , title_text , (50,50,50), font=card_font, align="center")
 
@@ -85,7 +83,7 @@ iter = math.ceil(count / 50)
 
 print(f"\nBeginning download of \"{CollectionName}\" collection.\n")
 
-# Define variables for statistics
+# Define variables for statistics 
 stats = {
 "DownloadedData": 0,
 "AlreadyDownloadedData": 0,
@@ -102,15 +100,14 @@ for i in range(iter):
 
     if "assets" in data:
         for asset in data["assets"]:
-          formatted_number = f"{int(asset['token_id']):04d}"
+            formatted_number = f"{int(asset['token_id']):04d}"
+            print(f"\n#{formatted_number}:")
 
-          print(f"\n#{formatted_number}:")
-
-          # Check if data for the NFT already exists, if it does, skip saving it
-          if os.path.exists(f'{filepath}\collections\{CollectionName}\image_data\{formatted_number}.json'):
-              print(f"  Data  -> [\u2713] (Already Downloaded)")
-              stats["AlreadyDownloadedData"] += 1
-          else:
+            # Check if data for the NFT already exists, if it does, skip saving it
+            if os.path.exists(f'{filepath}\collections\{CollectionName}\image_data\{formatted_number}.json'):
+                print(f"  Data  -> [\u2713] (Already Downloaded)")
+                stats["AlreadyDownloadedData"] += 1
+            else:
                 # Take the JSON from the URL, and dump it to the respective file.
                 dfile = open(f"{filepath}\collections\{CollectionName}\image_data\{formatted_number}.json", "w+")
                 json.dump(asset, dfile, indent=3)
@@ -118,33 +115,35 @@ for i in range(iter):
                 print(f"  Data  -> [\u2713] (Successfully downloaded)")
                 stats["DownloadedData"] += 1
 
-          # Check if image already exists, if it does, skip saving it
-          if os.path.exists(f'{filepath}\collections\{CollectionName}\{formatted_number}.png'):
-              print(f"  Image -> [\u2713] (Already Downloaded)")
-              stats["AlreadyDownloadedImages"] += 1
-          else:
-            # Make the request to the URL to get the image
-            if not asset["image_original_url"] == None:
-              image = requests.get(asset["image_original_url"])
+            # Check if image already exists, if it does, skip saving it
+            if os.path.exists(f'{filepath}\collections\{CollectionName}\{formatted_number}.png'):
+                print(f"  Image -> [\u2713] (Already Downloaded)")
+                stats["AlreadyDownloadedImages"] += 1
             else:
-              image = requests.get(asset["image_url"])
+                # Make the request to the URL to get the image
+                if not asset["image_original_url"] == None:
+                    image = requests.get(asset["image_original_url"])
+                else:
+                    image = requests.get(asset["image_url"])
 
-          # If the URL returns status code "200 Successful", save the image into the "images" folder.
-            if image.status_code == 200:
-                file = open(f"{filepath}\collections\{CollectionName}\{formatted_number}.png", "wb+")
-                file.write(image.content)
-                file.close()
-                print(f"  Image -> [\u2713] (Successfully downloaded)")
-                stats["DownloadedImages"] += 1
+                # If the URL returns status code "200 Successful", save the image into the "images" folder.
+                if image.status_code == 200:
+                    file = open(f"{filepath}\collections\{CollectionName}\{formatted_number}.png", "wb+")
+                    file.write(image.content)
+                    file.close()
+                    print(f"  Image -> [\u2713] (Successfully downloaded)")
+                    stats["DownloadedImages"] += 1
 
-                # Generate a card.
-                CreateImageCard(CollectionName, formatted_number, '')
+                    # Generate a card.
+                    card_name = f"{data['assets'][int(asset['token_id'])]['collection']['name']} #{formatted_number}"
+                    print("Data name: " + card_name)
+                    CreateImageCard(CollectionName, formatted_number, card_name)
 
-            # If the URL returns a status code other than "200 Successful", alert the user and don't save the image
-            else:
-                print(f"  Image -> [!] (HTTP Status {image.status_code})")
-                stats["FailedImages"] += 1
-                continue
+                # If the URL returns a status code other than "200 Successful", alert the user and don't save the image
+                else:
+                    print(f"  Image -> [!] (HTTP Status {image.status_code})")
+                    stats["FailedImages"] += 1
+                    continue
 
 print(f"""
 Finished downloading collection.
