@@ -1,0 +1,270 @@
+{
+   "id": 22698568,
+   "token_id": "38",
+   "num_sales": 2,
+   "background_color": null,
+   "image_url": "https://lh3.googleusercontent.com/9tGsVuMlHD99_bdC3jogVpdrC69N5FzdC5G5XuV1cFyMjRoP07hycd-7Hfy8hC7sLaggssvfyJCcfYIBoBUjQey8yYkbqF2kyCdq",
+   "image_preview_url": "https://lh3.googleusercontent.com/9tGsVuMlHD99_bdC3jogVpdrC69N5FzdC5G5XuV1cFyMjRoP07hycd-7Hfy8hC7sLaggssvfyJCcfYIBoBUjQey8yYkbqF2kyCdq=s250",
+   "image_thumbnail_url": "https://lh3.googleusercontent.com/9tGsVuMlHD99_bdC3jogVpdrC69N5FzdC5G5XuV1cFyMjRoP07hycd-7Hfy8hC7sLaggssvfyJCcfYIBoBUjQey8yYkbqF2kyCdq=s128",
+   "image_original_url": "https://ipfs.io/ipfs/QmZNurocAsqJA6B6MdchnpxxRqy6xAgigSuSTWvY9PmAaQ",
+   "animation_url": null,
+   "animation_original_url": null,
+   "name": null,
+   "description": null,
+   "external_link": null,
+   "asset_contract": {
+      "address": "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d",
+      "asset_contract_type": "non-fungible",
+      "created_date": "2021-04-22T03:03:43.731860",
+      "name": "BoredApeYachtClub",
+      "nft_version": "3.0",
+      "opensea_version": null,
+      "owner": 34522873,
+      "schema_name": "ERC721",
+      "symbol": "BAYC",
+      "total_supply": "0",
+      "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs\u2014 unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board. Future areas and perks can be unlocked by the community through roadmap activation. Visit www.BoredApeYachtClub.com for more details.",
+      "external_link": "http://www.boredapeyachtclub.com/",
+      "image_url": "https://lh3.googleusercontent.com/Ju9CkWtV-1Okvf45wo8UctR-M9He2PjILP0oOvxE89AyiPPGtrR3gysu1Zgy0hjd2xKIgjJJtWIc0ybj4Vd7wv8t3pxDGHoJBzDB=s120",
+      "default_to_fiat": false,
+      "dev_buyer_fee_basis_points": 0,
+      "dev_seller_fee_basis_points": 250,
+      "only_proxied_transfers": false,
+      "opensea_buyer_fee_basis_points": 0,
+      "opensea_seller_fee_basis_points": 250,
+      "buyer_fee_basis_points": 0,
+      "seller_fee_basis_points": 500,
+      "payout_address": "0xaae7ac476b117bccafe2f05f582906be44bc8ff1"
+   },
+   "permalink": "https://opensea.io/assets/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/38",
+   "collection": {
+      "banner_image_url": "https://lh3.googleusercontent.com/i5dYZRkVCUK97bfprQ3WXyrT9BnLSZtVKGJlKQ919uaUB0sxbngVCioaiyu9r6snqfi2aaTyIvv6DHm4m2R3y7hMajbsv14pSZK8mhs=s2500",
+      "chat_url": null,
+      "created_date": "2021-04-22T23:14:03.967121",
+      "default_to_fiat": false,
+      "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs\u2014 unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board. Future areas and perks can be unlocked by the community through roadmap activation. Visit www.BoredApeYachtClub.com for more details.",
+      "dev_buyer_fee_basis_points": "0",
+      "dev_seller_fee_basis_points": "250",
+      "discord_url": "https://discord.gg/3P5K3dzgdB",
+      "display_data": {
+         "card_display_style": "contain"
+      },
+      "external_url": "http://www.boredapeyachtclub.com/",
+      "featured": false,
+      "featured_image_url": "https://lh3.googleusercontent.com/RBX3jwgykdaQO3rjTcKNf5OVwdukKO46oOAV3zZeiaMb8VER6cKxPDTdGZQdfWcDou75A8KtVZWM_fEnHG4d4q6Um8MeZIlw79BpWPA=s300",
+      "hidden": false,
+      "safelist_request_status": "verified",
+      "image_url": "https://lh3.googleusercontent.com/Ju9CkWtV-1Okvf45wo8UctR-M9He2PjILP0oOvxE89AyiPPGtrR3gysu1Zgy0hjd2xKIgjJJtWIc0ybj4Vd7wv8t3pxDGHoJBzDB=s120",
+      "is_subject_to_whitelist": false,
+      "large_image_url": "https://lh3.googleusercontent.com/RBX3jwgykdaQO3rjTcKNf5OVwdukKO46oOAV3zZeiaMb8VER6cKxPDTdGZQdfWcDou75A8KtVZWM_fEnHG4d4q6Um8MeZIlw79BpWPA=s300",
+      "medium_username": null,
+      "name": "Bored Ape Yacht Club",
+      "only_proxied_transfers": false,
+      "opensea_buyer_fee_basis_points": "0",
+      "opensea_seller_fee_basis_points": "250",
+      "payout_address": "0xaae7ac476b117bccafe2f05f582906be44bc8ff1",
+      "require_email": false,
+      "short_description": null,
+      "slug": "boredapeyachtclub",
+      "telegram_url": null,
+      "twitter_username": "BoredApeYC",
+      "instagram_username": "boredapeyachtclub",
+      "wiki_url": null
+   },
+   "decimals": 0,
+   "token_metadata": "https://ipfs.io/ipfs/QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/38",
+   "owner": {
+      "user": {
+         "username": "bear-vault"
+      },
+      "profile_img_url": "https://storage.googleapis.com/opensea-static/opensea-profile/9.png",
+      "address": "0xe0433f07fb77b36ae23aaa2a7517904e1da6078f",
+      "config": ""
+   },
+   "sell_orders": [
+      {
+         "created_date": "2021-07-14T20:09:45.201191",
+         "closing_date": null,
+         "closing_extendable": false,
+         "expiration_time": 0,
+         "listing_time": 1626293268,
+         "order_hash": "0x44596d53cf34adbb6082f25d105cafc203cdf7be0d8f6fe0246014f9ff2962a1",
+         "metadata": {
+            "asset": {
+               "id": "38",
+               "address": "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d"
+            },
+            "schema": "ERC721"
+         },
+         "exchange": "0x7be8076f4ea4a4ad08075c2508e481d6c946d12b",
+         "maker": {
+            "user": 1019903,
+            "profile_img_url": "https://storage.googleapis.com/opensea-static/opensea-profile/9.png",
+            "address": "0xe0433f07fb77b36ae23aaa2a7517904e1da6078f",
+            "config": ""
+         },
+         "taker": {
+            "user": 1766,
+            "profile_img_url": "https://storage.googleapis.com/opensea-static/opensea-profile/1.png",
+            "address": "0x0000000000000000000000000000000000000000",
+            "config": ""
+         },
+         "current_price": "3838000000000000000000",
+         "current_bounty": "38380000000000000000",
+         "bounty_multiple": "0.01",
+         "maker_relayer_fee": "500",
+         "taker_relayer_fee": "0",
+         "maker_protocol_fee": "0",
+         "taker_protocol_fee": "0",
+         "maker_referrer_fee": "0",
+         "fee_recipient": {
+            "user": 3585,
+            "profile_img_url": "https://storage.googleapis.com/opensea-static/opensea-profile/28.png",
+            "address": "0x5b3256965e7c3cf26e11fcaf296dfc8807c01073",
+            "config": "verified"
+         },
+         "fee_method": 1,
+         "side": 1,
+         "sale_kind": 0,
+         "target": "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d",
+         "how_to_call": 0,
+         "calldata": "0x23b872dd000000000000000000000000e0433f07fb77b36ae23aaa2a7517904e1da6078f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000026",
+         "replacement_pattern": "0x000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000",
+         "static_target": "0x0000000000000000000000000000000000000000",
+         "static_extradata": "0x",
+         "payment_token": "0x0000000000000000000000000000000000000000",
+         "payment_token_contract": {
+            "id": 1,
+            "symbol": "ETH",
+            "address": "0x0000000000000000000000000000000000000000",
+            "image_url": "https://storage.opensea.io/files/6f8e2979d428180222796ff4a33ab929.svg",
+            "name": "Ether",
+            "decimals": 18,
+            "eth_price": "1.000000000000000",
+            "usd_price": "3733.059999999999945000"
+         },
+         "base_price": "3838000000000000000000",
+         "extra": "0",
+         "quantity": "1",
+         "salt": "37386048785548036639762385385591672411782497488289630722922823153388209007148",
+         "v": 28,
+         "r": "0x2517d11ac223bd780b371a1b83a4ae629b2fc3ed3ea2704b3e0e9fbe797643b3",
+         "s": "0x6346d16c1af2b05307cd6bfb4385c106d8850c6a6b5579e8ad7987b666e011d0",
+         "approved_on_chain": false,
+         "cancelled": false,
+         "finalized": false,
+         "marked_invalid": false,
+         "prefixed_hash": "0xaa03f476c985f3006e9e46d32c8a1b66be922197c4d6d6b7632a60573ae7d8df"
+      }
+   ],
+   "creator": {
+      "user": {
+         "username": "BoredApeYachtClub"
+      },
+      "profile_img_url": "https://storage.googleapis.com/opensea-static/opensea-profile/5.png",
+      "address": "0xaba7161a7fb69c88e16ed9f455ce62b791ee4d03",
+      "config": "verified"
+   },
+   "traits": [
+      {
+         "trait_type": "Eyes",
+         "value": "Closed",
+         "display_type": null,
+         "max_value": null,
+         "trait_count": 710,
+         "order": null
+      },
+      {
+         "trait_type": "Background",
+         "value": "Blue",
+         "display_type": null,
+         "max_value": null,
+         "trait_count": 1242,
+         "order": null
+      },
+      {
+         "trait_type": "Fur",
+         "value": "Black",
+         "display_type": null,
+         "max_value": null,
+         "trait_count": 1229,
+         "order": null
+      },
+      {
+         "trait_type": "Earring",
+         "value": "Cross",
+         "display_type": null,
+         "max_value": null,
+         "trait_count": 149,
+         "order": null
+      },
+      {
+         "trait_type": "Mouth",
+         "value": "Bored Cigarette",
+         "display_type": null,
+         "max_value": null,
+         "trait_count": 710,
+         "order": null
+      },
+      {
+         "trait_type": "Clothes",
+         "value": "Navy Striped Tee",
+         "display_type": null,
+         "max_value": null,
+         "trait_count": 334,
+         "order": null
+      }
+   ],
+   "last_sale": {
+      "asset": {
+         "token_id": "38",
+         "decimals": 0
+      },
+      "asset_bundle": null,
+      "event_type": "successful",
+      "event_timestamp": "2021-06-05T17:57:44",
+      "auction_type": null,
+      "total_price": "1800000000000000000",
+      "payment_token": {
+         "id": 1,
+         "symbol": "ETH",
+         "address": "0x0000000000000000000000000000000000000000",
+         "image_url": "https://storage.opensea.io/files/6f8e2979d428180222796ff4a33ab929.svg",
+         "name": "Ether",
+         "decimals": 18,
+         "eth_price": "1.000000000000000",
+         "usd_price": "3733.059999999999945000"
+      },
+      "transaction": {
+         "block_hash": "0xd1962b0ca00f67a595dd8dfe0aba65bf974981bbc83b22f867cdb9420472ddea",
+         "block_number": "12575900",
+         "from_account": {
+            "user": {
+               "username": "f444f"
+            },
+            "profile_img_url": "https://storage.googleapis.com/opensea-static/opensea-profile/3.png",
+            "address": "0xcafcf4a6994d4747d50a437e1569d90fb5c3f1cf",
+            "config": ""
+         },
+         "id": 122677313,
+         "timestamp": "2021-06-05T17:57:44",
+         "to_account": {
+            "user": {
+               "username": "OpenSea-Orders"
+            },
+            "profile_img_url": "https://storage.googleapis.com/opensea-static/opensea-profile/22.png",
+            "address": "0x7be8076f4ea4a4ad08075c2508e481d6c946d12b",
+            "config": "verified"
+         },
+         "transaction_hash": "0x38d6d776b33c7dff22b9a099db7d0e018e10bf8e89113587471b1efbcadd8a3b",
+         "transaction_index": "40"
+      },
+      "created_date": "2021-06-05T17:58:05.571447",
+      "quantity": "1"
+   },
+   "top_bid": null,
+   "listing_date": null,
+   "is_presale": false,
+   "transfer_fee_payment_token": null,
+   "transfer_fee": null
+}

@@ -8,6 +8,8 @@ import json
 import math
 import sys
 
+# Testing something.
+
 # Import to allow image manipulation.
 from PIL import Image, ImageFont, ImageDraw
 
