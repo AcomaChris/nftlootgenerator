@@ -29,7 +29,7 @@ collection = st.sidebar.text_input("Collection").lower()
 owner = st.sidebar.text_input("Owner")
 numberofassets = st.sidebar.number_input("Number of Assets", 0, 50, 1, 1)
 offset = st.sidebar.number_input("Offset Token ID", 0, None, 0, 1)
-
+order_direction = st.sidebar.selectbox("Order by",["asc","desc"])
 
 if endpoint == 'Assets':
     params = {}
@@ -38,8 +38,12 @@ if endpoint == 'Assets':
         params['collection'] = collection
     if owner:
         params['owner'] = owner
+    if offset:
+        params['offset'] = int(offset)
     if numberofassets:
         params['limit'] = numberofassets
+    if order_direction:
+        params['order_direction'] = order_direction
 
     r = requests.get("https://api.opensea.io/api/v1/assets", params=params)
 
