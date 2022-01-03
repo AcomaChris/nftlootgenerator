@@ -7,7 +7,7 @@ import cardgenerator
 from PIL import Image, ImageFont, ImageDraw
 from io import BytesIO
 
-# Debug variables for additional logging
+# Debug variables for additional logging 
 log_image_urls = False
 
 # Gets the current folder location.
@@ -65,13 +65,21 @@ if endpoint == 'Assets':
         if asset['image_url'].endswith('mp4'):
             st.video(asset['image_url'])
         else:
-            st.image(asset['image_url'])
+            #st.image(asset['image_url'])
 
             folder = os.path.dirname(os.path.realpath(__file__)) + "\collections"
 
             img_data = requests.get(asset['image_url']).content
-            with open(folder+"\\"+nft_name+".png", 'wb') as handler:
-                handler.write(img_data)
+
+            # Try png files
+            if asset['image_url'].endswith('png'):
+                with open(folder+"\\"+nft_name+".png", 'wb') as handler:
+                    handler.write(img_data)
+
+            # Try jpg files
+            elif asset['image_url'].endswith('jpg'):
+                with open(folder+"\\"+nft_name+".png", 'wb') as handler:
+                    handler.write(img_data)
 
             image_test = Image.open(".\collections\\"+nft_name+".png")
             st.image(image_test)
