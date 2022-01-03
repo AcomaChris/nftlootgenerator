@@ -138,8 +138,13 @@ if endpoint == 'Assets':
                 with open(png_save_name, 'wb') as handler:
                     handler.write(img_data)
 
+            # Image declaration for the final image
+            # NOTE: The reason this is broken is that we're not saving the file
+            # ...before we send final_image to the CreateImageCard
             interrim_image = Image.open(".\collections\\"+nft_name+".png")
-            final_image = Image.open(".\collections\\"+nft_name+".png")
+            final_image = interrim_image.resize([613, 613], None)
+            width, height = final_image.size
+            print(width,height)
 
             # Render as a playing card
             final_image = CreateImageCard(asset['collection']['name'], asset['token_id'], nft_name, img_location)
