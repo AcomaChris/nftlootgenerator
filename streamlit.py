@@ -64,6 +64,7 @@ if endpoint == 'Assets':
         # TODO: Need a solution for SVGs and audio files.
         if asset['image_url'].endswith('mp4'):
             st.video(asset['image_url'])
+
         else:
             #st.image(asset['image_url'])
 
@@ -71,13 +72,16 @@ if endpoint == 'Assets':
 
             img_data = requests.get(asset['image_url']).content
 
-            # Try png files
-            if asset['image_url'].endswith('png'):
-                with open(folder+"\\"+nft_name+".png", 'wb') as handler:
-                    handler.write(img_data)
+            # Check to see if we've already downloaded it.
+            if os.path.exists(f'{folder}+"\\"+nft_name+".jpg"') or os.path.exists(f'{folder}+"\\"+nft_name+".png"'):
+                print(f"  Data  -> [\u2713] (Already Downloaded)")
 
-            # Try jpg files
-            elif asset['image_url'].endswith('jpg'):
+            # Test for jpg vs png files
+            if asset['image_url'].endswith('jpg'):
+                with open(folder+"\\"+nft_name+".jpg", 'wb') as handler:
+                    handler.write(img_data)
+                        # Try png files
+            else:
                 with open(folder+"\\"+nft_name+".png", 'wb') as handler:
                     handler.write(img_data)
 
