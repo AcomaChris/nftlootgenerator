@@ -1,7 +1,10 @@
 import streamlit as st
 import requests, json, math, sys, os
 import urllib.request
-import cardgenerator
+
+#######################
+# Import all the things
+#######################
 
 # Import to allow image manipulation.
 from PIL import Image, ImageFont, ImageDraw
@@ -18,9 +21,52 @@ print('Local filepath is: ' + filepath)
 print(f'{filepath}\cardgeneration\PoetsenOne-Regular.ttf')
 card_font = ImageFont.truetype(f'{filepath}\cardgeneration\PoetsenOne-Regular.ttf', 64)
 
-######################
-# Setup User Interface
-######################
+#######################################
+# Generate cards from downloaded images
+#######################################
+
+title_font = ImageFont.truetype(f'{filepath}\cardgeneration\PoetsenOne-Regular.ttf', 40)
+description_font = ImageFont.truetype(f'{filepath}\cardgeneration\PoetsenOne-Regular.ttf', 40)
+
+def CreateImageCard(collection_name, formatted_number, card_name, nft_input_location):
+    
+    # Create variables for holding the images we want to merge.
+    nft_image = Image.open(f"{nft_input_location}")
+    background_image = Image.open(f"{filepath}\cardgeneration\card_background.png")
+    trim_image = Image.open(f"{filepath}\cardgeneration\card_trim.png")
+
+    # Convert all the images to RGBA
+    nft_image.convert("RGBA")
+    background_image.convert("RGBA")
+    trim_image.convert("RGBA")
+
+    # Grab the size of the background image and store as variables.
+    background_size = background_image.size
+
+    # Merge the images in the correct order.
+    final_image = Image.new('RGBA' , (background_size[0],background_size[1]) , (255,255,255))
+    final_image.paste(background_image,(0,0),background_image)
+    final_image.paste(nft_image,(30,140),nft_image)
+    final_image.paste(trim_image,(0,0),trim_image)
+
+    # Add the text title to the card.
+    title_text = card_name
+    final_image_editable = ImageDraw.Draw(final_image)
+    final_image_editable.text((60,40) , title_text , (50,50,50), font=title_font, align="center")
+
+    # Save the image to disk
+    print(os.path)
+    final_image.save(f"{filepath}\collections\{formatted_number}_card.png",format="png")
+
+    # Return the new image
+    return final_image
+
+# Initialization complete
+print("Card generator initialization complete.")
+
+#######################
+# Create User Interface
+#######################
 endpoint = st.sidebar.selectbox("Endpoints", ['Assets', 'Events', 'Rarity'])
 st.header(f'Juno NFT Loot Inspector - {endpoint}')
 
@@ -53,11 +99,13 @@ if endpoint == 'Assets':
     for asset in response["assets"]:
 
         # Generate a name for the asset
-        nft_name = ''
-        if asset['name']:
-            nft_name = asset['name']
-        else:
-            nft_name = f"{asset['collection']['name']} #{asset['token_id']}"
+        nft_name = f"{asset['collection']['name']} #{asset['token_id']}"
+
+        # if asset['name']:
+        #     nft_name = asset['name']
+        # else:
+        #     nft_name = f"{asset['collection']['name']} #{asset['token_id']}"
+
         st.write(nft_name)
 
         # Check to see the type of asset and use the correct player.
@@ -71,6 +119,7 @@ if endpoint == 'Assets':
             folder = os.path.dirname(os.path.realpath(__file__)) + "\collections"
 
             img_data = requests.get(asset['image_url']).content
+            img_location = ''
 
             # Check to see if we've already downloaded it.
             if os.path.exists(f'{folder}+"\\"+nft_name+".jpg"') or os.path.exists(f'{folder}+"\\"+nft_name+".png"'):
@@ -78,15 +127,25 @@ if endpoint == 'Assets':
 
             # Test for jpg vs png files
             if asset['image_url'].endswith('jpg'):
-                with open(folder+"\\"+nft_name+".jpg", 'wb') as handler:
+                jpg_save_name = folder + "\\" + nft_name + ".jpg"
+                img_location = jpg_save_name
+                with open(jpg_save_name, 'wb') as handler:
                     handler.write(img_data)
-                        # Try png files
+            # Try png files
             else:
-                with open(folder+"\\"+nft_name+".png", 'wb') as handler:
+                png_save_name = folder + "\\" + nft_name + ".png"
+                img_location = png_save_name
+                with open(png_save_name, 'wb') as handler:
                     handler.write(img_data)
 
-            image_test = Image.open(".\collections\\"+nft_name+".png")
-            st.image(image_test)
+            interrim_image = Image.open(".\collections\\"+nft_name+".png")
+            final_image = Image.open(".\collections\\"+nft_name+".png")
+
+            # Render as a playing card
+            final_image = CreateImageCard(asset['collection']['name'], asset['token_id'], nft_name, img_location)
+
+            # Render the image
+            st.image(final_image)
             
         # Log image urls is we've got that debug flag on.
         if(log_image_urls):

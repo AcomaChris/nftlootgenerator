@@ -14,11 +14,10 @@ def SetCardFonts(title_font_filepath, description_font_filepath):
 #######################################
 # Generate cards from downloaded images
 #######################################
-def CreateImageCard(filepath, collection_name, formatted_number, card_name, nft_input_image):
+def CreateImageCard(filepath, collection_name, formatted_number, card_name, nft_input_location):
     
     # Create variables for holding the images we want to merge.
-    nft_image = nft_input_image
-    #nft_image = Image.open(f"{filepath}\collections\{CollectionName}\{formatted_number}.png")
+    nft_image = Image.open(f"{nft_input_location}")
     background_image = Image.open(f"{filepath}\cardgeneration\card_background.png")
     trim_image = Image.open(f"{filepath}\cardgeneration\card_trim.png")
 
@@ -42,8 +41,8 @@ def CreateImageCard(filepath, collection_name, formatted_number, card_name, nft_
     final_image_editable.text((60,40) , title_text , (50,50,50), font=title_font, align="center")
 
     # Save the image to disk
-    print(os.path)
-    final_image.save(f"{filepath}\collections\{collection_name}\{formatted_number}_card.png",format="png")
+    # print(os.path)
+    # final_image.save(f"{filepath}\collections\{collection_name}\{formatted_number}_card.png",format="png")
 
     # Return the new image
     return final_image
