@@ -100,6 +100,15 @@ if endpoint == 'Assets':
 
         # Generate a name for the asset
         nft_name = f"{asset['collection']['name']} #{asset['token_id']}"
+        collection_name = f"{asset['collection']['name']}"
+
+        # TODO: Move all the images into their own collection folders again.
+        if not os.path.exists(f'{filepath}\collections\{collection_name}'):
+            os.mkdir(f'{filepath}\collections\{collection_name}')
+
+        # TODO: Rehook up the JSON exporter for the image_data folder.
+        if not os.path.exists(f'{filepath}\collections\{collection_name}\image_data'):
+            os.mkdir(f'{filepath}\collections\{collection_name}\image_data')
 
         # if asset['name']:
         #     nft_name = asset['name']
