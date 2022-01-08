@@ -21,6 +21,17 @@ print('Local filepath is: ' + filepath)
 print(f'{filepath}\cardgeneration\PoetsenOne-Regular.ttf')
 card_font = ImageFont.truetype(f'{filepath}\cardgeneration\PoetsenOne-Regular.ttf', 64)
 
+############################
+# Setup the folder structure
+############################
+
+# Create image folder if it doesn't exist.
+if not os.path.exists('{filepath}'):
+    os.mkdir('{filepath}')
+
+if not os.path.exists(f'{filepath}\collections'):
+    os.mkdir(f'{filepath}\collections')
+
 #######################################
 # Generate cards from downloaded images
 #######################################
