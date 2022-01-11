@@ -3,6 +3,8 @@
 
 import time
 import sympy
+import random
+import uuid
 
 #############################
 # Declare required variables.
@@ -11,6 +13,7 @@ import sympy
 debug_recordtime = False # Switch to True to record and print loot generation time out.
 
 test_prime = 6242950767904892547110745313203633592441 # For large digitl prime number testing.
+test_contract_id = "0x06012c8cf97bead5deae237070f9587f8e7a266d"
 
 if(debug_recordtime) : t0 = time.time()
 
@@ -19,9 +22,12 @@ if(debug_recordtime) : t0 = time.time()
 ###########################################################
 
 def IsPrimeNumber(token_id):
- return sympy.isprime(token_id)
+    return sympy.isprime(token_id)
 
-def CreateUniqueID(token_id):
+def CreateUniqueID(contract_id, token_id):
+    print(f"Contract ID: {hex(int(contract_id[2:], 16))} + Token ID: {token_id}")
+    seed_number = hex(int(contract_id[2:], 16) + token_id)
+    print(f"Seed Number: {seed_number}")
     pass
 
 def GetRarity(token_id):
@@ -29,6 +35,8 @@ def GetRarity(token_id):
 
 def GiveLootObject(colour, rarity):
     return 'I am a loot object'
+
+CreateUniqueID(test_contract_id, 1024)
 
 # Print out the total time at the end of the operation.
 if(debug_recordtime): 

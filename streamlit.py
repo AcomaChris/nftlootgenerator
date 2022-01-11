@@ -10,8 +10,16 @@ import urllib.request
 from PIL import Image, ImageFont, ImageDraw
 from io import BytesIO
 
-# Debug variables for additional logging 
-log_image_urls = False
+#################
+# Debug Variables
+#################
+
+log_image_urls = False # Log the image URLs in the console
+log_card_metadata = True # Log the metadata of the card, e.g.: ID, contract, name, etc...
+
+#######################################
+# Set up file path for folder and fonts
+#######################################
 
 # Gets the current folder location.
 filepath = os.path.dirname(os.path.realpath(sys.argv[0]))
@@ -108,6 +116,15 @@ if endpoint == 'Assets':
 
     # Iterate through asset media and attempt to display.
     for asset in response["assets"]:
+
+        # Debug prints to show asset values        
+        if(log_card_metadata):
+            print("=============================")
+            print(f"{asset['collection']['name']} {asset['token_id']}")
+            print(f" - ID: {asset['id']}")
+            print(f" - Token ID: {asset['token_id']}")
+            print(f" - Contract Address: {asset['asset_contract']['address']}")
+            print("=============================")
 
         # Generate a name for the asset
         nft_name = f"{asset['collection']['name']} #{asset['token_id']}"
